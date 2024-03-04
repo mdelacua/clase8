@@ -41,18 +41,14 @@ router.post('/formulario', (req, res) => {
         Email: email
     });
 
-})
-
+});
 
 router.put('/actualizar', (req, res) => {
     res.send('Actualizando');
 });
 
-
 router.delete('/borrar', (req, res) => {
     res.send('Borrando');    
 })
-
-
 
 module.exports = router;
