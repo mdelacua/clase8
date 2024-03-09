@@ -1,5 +1,9 @@
 const path = require('node:path');
 
+const bienvenida = (req, res) => {
+    res.render('index');
+}
+
 const descargas = (req, res) => {
     console.log('Entro a descarga');
     console.log(path.join(__dirname, '../public/descarga.txt'));
@@ -11,9 +15,26 @@ const home = (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html')); 
 }
 
-const bienvenida = (req, res) => {
-    res.render('index');
+const registro = (req, res) => {
+
+    res.render('registro');
+
 }
+
+const registarUsuario = (req, res) => {
+
+    const {
+        nombre, 
+        apellido, 
+        email, 
+        password
+    } = req.body;
+
+    console.log(`Nombre: ${nombre} Apellido: ${apellido} Email: ${email} Password: ${password}`);
+
+    res.send('Usuario Registrado');
+}
+
 
 const guardar = (req, res) => {
     const nombre = req.body.nombre;
@@ -84,6 +105,8 @@ module.exports = {
     descargas,
     home,
     bienvenida,
+    registro,
+    registarUsuario,
     guardar, 
     formulario,
     actualizar,
